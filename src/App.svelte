@@ -144,14 +144,12 @@
   }
 
   function keyDownOpt(e) {
-    console.log(e);
     if (e.target.textContent.length > 30 && !e.ctrlKey && e.which !== 8)
       e.preventDefault();
   }
 
   function newOpt(e) {
     var key = genKey();
-    console.log(key);
     poll.opts[key] = "";
   }
 
@@ -195,7 +193,6 @@
       .get(`gupoll#<?604800`)
       .get(hash)
       .promPut(pair.pub);
-    console.log((await gun.get("gupoll#<?604800").promOnce()).data);
     localStorage[hash] = JSON.stringify(pair);
     location.hash = hash;
     clearTimeout(a);
@@ -255,7 +252,6 @@
       if (elem.querySelector(".optPercentage") !== null)
         elem.querySelector(".optPercentage").textContent =
           Math.round(perc) + "%";
-      console.log(perc, i);
     }
   }
 
@@ -523,8 +519,7 @@
     </div>
     {#if !editMode && (voted || owner)}
       <span id="voteCount">
-        {totalVotes} vote
-        {#if totalVotes !== 1}s{/if}
+        {totalVotes} vote{#if totalVotes !== 1}s{/if}
       </span>
       {#if voteDidntCount}
         <span id="deliveredVote">waiting for the vote to be counted...</span>
