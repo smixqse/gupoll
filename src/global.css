@@ -1,0 +1,12 @@
+html {
+    --theme-color: rgb(150, 165, 252);
+    --dark-bg: rgb(24, 24, 24);
+    --dark-color: rgb(219, 219, 219);
+}
+
+@media (prefers-color-scheme: dark) {
+    .dark {
+        background-color: var(--dark-bg);
+        color: var(--dark-color);
+    }
+}
